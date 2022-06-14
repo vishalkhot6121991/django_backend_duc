@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+{% block title %}Login {% endblock title %}
+
+{% block contain %}
+
+<section class="container">
+<div class="row justify-content-around mt-5">
+    <div class="col-md-5">
+        <h3 class="text-success text-center"> Login Form</h3>
+    </div>
+</div>
+<div class="row justify-content-around mt-5">
+    <div class="col-md-5 text-center">
+    <form action="" method="post" class='text-md-start'>
+        {% csrf_token %}
+        {% for fm in form   %}
+        {{fm.label_tag}}
+        {{fm}}
+        <small class="text-danger">{{fm.errors|striptags}}</small>
+
+
+        
+        {% endfor %}
+        <input type="submit" value="Login" class ='btn btn-primary my-2'>
+
+    </form>
+    </div>
+</div>
+
+</section>
+
+{% endblock contain %}
